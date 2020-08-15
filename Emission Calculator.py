@@ -6,7 +6,7 @@
 
 
 # Add the utilizing of the this method, include connecting points.
-
+# Returns total CO2 emission on the flight, KG.
 def calcEmission(distance, numPass, numCon):
     passEmission = ePerPassengerKG(distance)*numPass
     passEmission *= distance
@@ -19,7 +19,7 @@ def calcEmission(distance, numPass, numCon):
     totalEmission = passEmission/percentPassE
     fTime = distance/900
     totalEmission = ((1.7*numPass*90*fTime) + 1.8*totalEmission)/2
-    totalEmission += totalEmission*(2.8/100)
+    totalEmission += numContotalEmission*(2.8/100)
     return totalEmission
 
 def ePerPassengerKG(distance):
