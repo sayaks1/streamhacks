@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>StreamHacks</title>
+
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+  
+    </style>
+  </head>
+  <body>
+
+  <header>
+    <h3 style="text-align: center;">StreamHacks</h3>
+  </header>
+    
+    <div id="map">
+    </div>
+
+    <script>
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      var toronto = {lat: 43.6487, lng: -79.38544};
+      var montreal = {lat: 45.5124, lng: -73.55468};
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 4, center: toronto});
+      // The marker, positioned at toronto
+      //var marker = new google.maps.Marker({position: toronto, map: map});
+      //var marker1 = new google.maps.Marker({position: montreal, map: map});
+
+      var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 style="color:black"><b>Toronto Pearson<b></h1>'+
+
+      '<div id="bodyContent">'+
+      '<p style="color:brown">Flights Departing</p>'+
+      '</div>'+
+      '</div>';
+
+      var contentString1 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 style="color:black"><b>Montreal Trudeau<b></h1>'+
+
+      '<div id="bodyContent">'+
+      '<p style="color:brown">Flights Departing</p>'+
+      '</div>'+
+      '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+      content: contentString
+      });
+
+      var marker = new google.maps.Marker({
+        position: toronto,
+        map: map,
+        title: 'Pearson'
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+
+      var infowindow1 = new google.maps.InfoWindow({
+      content: contentString1
+      });
+
+      var marker1 = new google.maps.Marker({
+        position: montreal,
+        map: map,
+        title: 'Trudeau'
+      });
+      marker1.addListener('click', function() {
+        infowindow1s.open(map, marker1);
+      });
+    }
+
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?AIzaSyCH0iHdliy0QC4W-23aSHJ3KvCaQ155HZ8=YOUR_API_KEY&callback=initMap">
+    </script>
+
+</div>
+</body>
+</html>
