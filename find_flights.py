@@ -45,12 +45,18 @@ def find_flight(origin, dest):
         
     return path
 
+def find_distance(path):
+    total_dist = 0
+    for i in range(len(path)-1):
+        first, second = path[i:i+2]
+        total_dist += distances[(first, second)]
+    return total_dist
 #example: returns all direct flights out of Rochester
 # possible_destinations("Rochester, NY")
 
 #example: Finds shortest path from Rochester to Las Vegas
-# find_flight("Rochester, NY", "Las Vegas, NV")
-
+# path = find_flight("Rochester, NY", "Las Vegas, NV")
+# print(find_distance(path))
 
 
 

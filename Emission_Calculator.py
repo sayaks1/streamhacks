@@ -19,7 +19,7 @@ def calcEmission(distance, numPass, numCon):
     totalEmission = passEmission/percentPassE
     fTime = distance/900
     totalEmission = ((1.7*numPass*90*fTime) + 1.8*totalEmission)/2
-    totalEmission += numContotalEmission*(2.8/100)
+    totalEmission += numCon*totalEmission*(2.8/100)
     return totalEmission
 
 def ePerPassengerKG(distance):
@@ -30,4 +30,4 @@ def ePerPassengerKG(distance):
 
 
 # Test.
-print(calcEmission(892, 1))
+print(calcEmission(892, 1, 1))
