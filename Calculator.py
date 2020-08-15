@@ -22,15 +22,21 @@ def calcEmission(distance, numPass, numCon):
     fTime = distance/900
     totalEmission = ((1.7*numPass*90*fTime) + 1.8*totalEmission)/2
     totalEmission += numCon*totalEmission*(rate/100)
-    return totalEmission
+    return int(totalEmission)
 
+# Calculates the average passenger CO2 emission per km
 def ePerPassengerKG(distance):
     distance += 300
     distance = 50 / float(distance)
     distance += (1 / 17)
     return distance
 
+def calcPrice(distance):
+    price = 0.129*distance
+    price += 200
+    return int(price)
+
 
 # Test.
-
-# print(calcEmission(892, 1, 2))
+print(str(calcEmission(892, 1, 2)) + "kg of CO2 emitted!")
+print("The flight's price is $" + str(calcPrice(892)))
