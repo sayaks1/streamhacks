@@ -1,5 +1,6 @@
 from find_flights import find_flight, find_distance
 from Emission_Calculator import calcEmission
+from price import extra_cost
 
 origin = input("Please enter your origin city, state: ")
 dest = input("Please enter your destination city, state: ")
@@ -11,4 +12,9 @@ if path[1] != path[-1]:
     print(f"Connection at: {path[1]}")
 else:
     connection = 0
-print(f"Total Carbon Emissions: {calcEmission(find_distance(path), numPeople, connection)}")
+carbon_emission = calcEmission(find_distance(path), numPeople, connection)
+print(f"Total Carbon Emissions: {carbon_emission}")
+
+# Price:
+extra_cost = extra_cost(carbon_emission)
+print(f"Extra Cost: {extra_cost}")
